@@ -18,11 +18,12 @@ import com.example.util.PropertyLoader;
  */
 public class TestNgTestBase {
 
-  protected static String gridHubUrl;
-  protected static String baseUrl;
-  protected static Capabilities capabilities;
+  public static String gridHubUrl;
+  public static String baseUrl;
+  public static Capabilities capabilities;
 
   protected WebDriver driver;
+
 
   @BeforeSuite
   public void initTestSuite() throws IOException {

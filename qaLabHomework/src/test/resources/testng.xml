@@ -1,9 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
-<suite name="Tests" verbose="5">
-  <test name="Test1">
+<suite name="Ebay search engine test" verbose="7">
+  <test name="Brand filter test">
     <classes>
-      <class name="com.example.SampleTestNgTest"/>
+      <class name="com.example.BrandFilterTest"/>
+    </classes>
+  </test> 
+ <test name="Condition filter test">
+    <classes>
+      <class name="com.example.ConditionFilterTest"/>
+    </classes>
+  </test>
+<test name="Price filter test">
+    <classes>
+      <class name="com.example.PriceFilterTest"/>
+    </classes>
+  </test>  
+<test name="Sale format filter test">
+    <classes>
+      <class name="com.example.SaleFormatFilterTest"/>
+    </classes>
+  </test>  
+<test name="Item location filter test">
+    <classes>
+      <class name="com.example.ItemLocationFilterTest"/>
+    </classes>
+  </test>  
+<test name="Delivery options filter test">
+    <classes>
+      <class name="com.example.DeliveryOptionsFilterTest"/>
+    </classes>
+  </test>  
+<test name="Returns policy filter test">
+    <classes>
+      <class name="com.example.ReturnsPolicyFilterTest"/>
     </classes>
   </test>  
 </suite>

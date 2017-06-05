@@ -28,12 +28,8 @@ public class ReturnsPolicyFilterTest extends TestNgTestBase {
         homepage = PageFactory.initElements(driver, HomePage.class);
         itemSearchFilter = PageFactory.initElements(driver, ItemSearchFilter.class);
         homepage.openPage(baseUrl);
-        Thread.sleep(10000);
-        //driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        JavascriptExecutor jse = (JavascriptExecutor) driver;
-        jse.executeScript("document.getElementById('gh-eb-Geo-a-en').click();");
-        Thread.sleep(10000);
-        //driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        //driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+        Thread.sleep(30000);
     }
 
 
