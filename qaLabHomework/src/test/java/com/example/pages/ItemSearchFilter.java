@@ -4,6 +4,7 @@ import com.gargoylesoftware.htmlunit.html.DomElement;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
 /**
  * Implementation of side bar filtration.
@@ -12,13 +13,11 @@ public class ItemSearchFilter extends Page {
     private static final String FENDER_BRAND_CHECKBOX_XPATH = ".//*[@id='e1-19']";
     private static final String NEW_CONDITION_XPATH = ".//*[@id='e1-52']";
     private static final String LOWER_PRICE_FIELD_XPATH = ".//*[@id='e1-7']";
-    private static final String SUBMIT_PRICE_BUTTON_XPATH = ".//*[@id='e1-65']";
+    private static final String SUBMIT_PRICE_BUTTON_XPATH = ".//*[@id='e1-63']";
     private static final String AUCTION_RADIOBUTTON_XPATH = ".//*[@id='e1-69']";
     private static final String US_ONLY_RADIOBUTTON_XPATH = ".//*[@id='e1-77']";
     private static final String FREE_INTERNATIONAL_SHIPPING_CHECKBOX_XPATH = ".//*[@id='e1-86']";
     private static final String RETURNS_ACCEPTED_CHECKBOX_XPATH = ".//*[@id='e1-89']";
-    String price;
-
 
     public ItemSearchFilter(WebDriver webDriver) {
         super(webDriver);
@@ -69,16 +68,17 @@ public class ItemSearchFilter extends Page {
 
     public void newConditionCheckboxClick() { newConditionCheckbox.click(); }
 
+    public void returnsAcceptedCheckboxClick() {
+        returnsAcceptedCheckbox.click();
+    }
+
     /**
      * Submit lower price range method.
+     *
      * @param price
      */
     public void submitLowerPrice(String price) {
         lowerPriceField.sendKeys(price);
         submitPriceButton.click();
-    }
-
-    public void returnsAcceptedCheckboxClick() {
-        returnsAcceptedCheckbox.click();
     }
 }
