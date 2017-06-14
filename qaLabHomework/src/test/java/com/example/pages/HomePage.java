@@ -1,5 +1,6 @@
 package com.example.pages;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.CacheLookup;
@@ -27,8 +28,9 @@ public class HomePage extends Page {
   }
 
   public void openPage(String URL) {
-
     this.driver.get(URL);
+    JavascriptExecutor switchLanguage = (JavascriptExecutor) driver;
+    switchLanguage.executeScript("document.getElementById('gh-eb-Geo-a-en').click();");
   }
 
   /**
