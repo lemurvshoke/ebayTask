@@ -25,16 +25,12 @@ public class ConditionFilterTest extends TestNgTestBase {
     private ItemSearchFilter itemSearchFilter;
 
     @BeforeMethod
-    public void setUp() throws  InterruptedException {
+    public void setUp() throws InterruptedException {
         homepage = PageFactory.initElements(driver, HomePage.class);
         itemSearchFilter = PageFactory.initElements(driver, ItemSearchFilter.class);
         homepage.openPage(baseUrl);
-        Thread.sleep(10000);
-        //driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        JavascriptExecutor jse = (JavascriptExecutor) driver;
-        jse.executeScript("document.getElementById('gh-eb-Geo-a-en').click();");
-        Thread.sleep(10000);
-        //driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        //driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+        Thread.sleep(30000);
     }
 
     @Test
@@ -42,11 +38,10 @@ public class ConditionFilterTest extends TestNgTestBase {
         ItemSearchPage itemSearchPage = homepage.search(SEARCH_INPUT);
         itemSearchFilter.newConditionCheckboxClick();
         List<String> linkList = itemSearchPage.getLinkList();
-        for (String link: linkList) {
-            driver.get(link);
-            WebElement itemCondition = driver.findElement(By.xpath(".//*[@id='vi-itm-cond']"));
-            String condition = itemCondition.getText().toLowerCase();
+        for (String link : linkList) {
+            String condition = itemSearchPage.getConditionString(link);
             Assert.assertEquals(condition, EXPECTED_CONDITION);
         }
     }
 }
+

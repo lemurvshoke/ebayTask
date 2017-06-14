@@ -18,6 +18,7 @@ public class ItemSearchPage extends Page {
     private static final String SALE_FORMAT_XPATH = "*//li[@class='lvformat']/span";
     private static final String DELIVERY_OPTIONS_XPATH = "//li[@class=\"lvshipping\"]//span[@class=\"bfsp\"]";
     private static final String ITEM_LOCATION_XPATH = "*//li[contains(text(), \"From United States\")]";
+    private static final String ITEM_CONDITION_XPATH = ".//*[@id='vi-itm-cond']";
     String shippingType;
     String itemLocationType;
 
@@ -76,6 +77,18 @@ public class ItemSearchPage extends Page {
             saleFormatList.add(results);
         }
         return saleFormatList;
+    }
+
+    /**
+     * @param link
+     * @return String which contains item condition
+     */
+    public String getConditionString(String link) {
+            driver.get(link);
+            WebElement itemCondition = driver.findElement(By.xpath(ITEM_CONDITION_XPATH));
+            String condition = itemCondition.getText().toLowerCase();
+
+        return condition;
     }
 
     /**

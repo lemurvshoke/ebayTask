@@ -31,21 +31,19 @@ public class PriceFilterTest extends TestNgTestBase {
         homepage = PageFactory.initElements(driver, HomePage.class);
         itemSearchFilter = PageFactory.initElements(driver, ItemSearchFilter.class);
         homepage.openPage(baseUrl);
-        Thread.sleep(10000);
-        //driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        JavascriptExecutor jse = (JavascriptExecutor) driver;
-        jse.executeScript("document.getElementById('gh-eb-Geo-a-en').click();");
-        Thread.sleep(10000);
-        //driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        //driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+        Thread.sleep(20000);
     }
 
 
     @Test
     public void itemCardPageContainsExpectedPrice() throws InterruptedException {
         ItemSearchPage itemSearchPage = homepage.search(SEARCH_INPUT);
-        Thread.sleep(5000);
-        itemSearchFilter.submitLowerPrice(LOWER_PRICE_INPUT);
+        //driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         Thread.sleep(10000);
+        itemSearchFilter.submitLowerPrice(LOWER_PRICE_INPUT);
+        //driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+        Thread.sleep(5000);
         List<String> priceList = itemSearchPage.getPriceList();
         for (String price: priceList) {
             String priceRub = price.replaceAll( "[a-z,]", "");
